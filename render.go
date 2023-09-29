@@ -4,12 +4,7 @@ import "strings"
 
 // Renders the tree into a string.
 func (c Config) RenderString(n Node) string {
-	v := strings.Join(c.RenderLines(n), "\n")
-	if c.TrueTreeBranches {
-		v = v[1:]
-	}
-	
-	return v
+	return strings.Join(c.RenderLines(n), "\n")
 }
 
 // Render the tree into a set of lines. This is useful mostly for internal use.
@@ -21,7 +16,7 @@ func (c Config) RenderLines(n Node) []string {
 	l1 := []rune{c.ESW, c.EW, ' '}
 
 	if c.TrueTreeBranches {
-		l1 = []rune{' '}
+		l1 = []rune{}
 	} else if len(children) == 0 {
 		l1[0] = c.EW
 	}
