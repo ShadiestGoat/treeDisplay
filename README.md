@@ -1,5 +1,7 @@
 # Tree Display
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/shadiestgoat/treeDisplay.svg)](https://pkg.go.dev/github.com/shadiestgoat/treeDisplay) 
+
 A simple and extendable go library to render tree-like elements into a string/string array
 
 ## Installing
