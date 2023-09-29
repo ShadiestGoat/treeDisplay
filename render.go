@@ -22,6 +22,15 @@ func (c Config) RenderLines(n Node) []string {
 	}
 
 	lines = append(lines, string(l1)+n.GetName())
+	truePrefix := ""
+
+	if c.TrueTreeBranches {
+		truePrefix = " "
+
+		if c.TrueTreeSpacing && len(n.GetName()) >= 2 {
+			truePrefix += " "
+		}
+	}
 
 	for i, ch := range children {
 		startC := c.NES
@@ -41,6 +50,8 @@ func (c Config) RenderLines(n Node) []string {
 		if isLast {
 			prefix = "  "
 		}
+
+		prefix += truePrefix
 
 		for _, l := range cLines[1:] {
 			lines = append(lines, prefix+l)

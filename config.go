@@ -22,6 +22,8 @@ type Config struct {
 	// ├─ Child
 	// ╰─ Other CHild
 	TrueTreeBranches bool
+	// If enabled, with TrueTreeBranches enabled, this will add an extra space if possible to the child branches
+	TrueTreeSpacing bool
 }
 
 var ConfigRounded = Config{
