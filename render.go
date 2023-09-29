@@ -23,14 +23,9 @@ func (c Config) RenderLines(n Node) []string {
 
 	lines = append(lines, string(l1)+n.GetName())
 	truePrefix := ""
-	namePrefix := ""
 
-	if c.TrueTreeBranches {
+	if c.TrueTreeBranches && c.TrueTreeSpacing {
 		truePrefix = " "
-
-		if c.TrueTreeSpacing && len(n.GetName()) >= 2 {
-			namePrefix = " "
-		}
 	}
 
 	for i, ch := range children {
@@ -44,7 +39,7 @@ func (c Config) RenderLines(n Node) []string {
 
 		cLines := c.RenderLines(ch)
 
-		lines = append(lines, string([]rune{startC, c.EW}) + namePrefix + cLines[0])
+		lines = append(lines, string([]rune{startC, c.EW}) + cLines[0])
 
 		prefix := string(c.NS) + " "
 
@@ -52,7 +47,7 @@ func (c Config) RenderLines(n Node) []string {
 			prefix = "  "
 		}
 
-		prefix += truePrefix + namePrefix
+		prefix += truePrefix
 
 		for _, l := range cLines[1:] {
 			lines = append(lines, prefix+l)
