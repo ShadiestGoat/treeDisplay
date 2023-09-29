@@ -15,7 +15,9 @@ func (c Config) RenderLines(n Node) []string {
 
 	l1 := []rune{c.ESW, c.EW, ' '}
 
-	if len(children) == 0 {
+	if c.TrueTreeBranches {
+		l1 = []rune{' '}
+	} else if len(children) == 0 {
 		l1[0] = c.EW
 	}
 

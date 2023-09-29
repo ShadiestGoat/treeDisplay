@@ -16,6 +16,12 @@ type Config struct {
 	// North, East
 	// Indicates that this is the last child, and doesn't continue the vertical line.
 	NE rune
+
+	// If this is true, it won't extend the tree branches, and render like this:
+	// Parent
+	// ├─ Child
+	// ╰─ Other CHild
+	TrueTreeBranches bool
 }
 
 var ConfigRounded = Config{
