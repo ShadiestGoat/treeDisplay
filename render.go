@@ -4,7 +4,12 @@ import "strings"
 
 // Renders the tree into a string.
 func (c Config) RenderString(n Node) string {
-	return strings.Join(c.RenderLines(n), "\n")
+	v := strings.Join(c.RenderLines(n), "\n")
+	if c.TrueTreeBranches {
+		v = v[1:]
+	}
+	
+	return v
 }
 
 // Render the tree into a set of lines. This is useful mostly for internal use.
