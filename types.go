@@ -1,4 +1,4 @@
-package main
+package treeDisplay
 
 type Node interface {
 	GetChildren() []Node
@@ -6,7 +6,7 @@ type Node interface {
 }
 
 type TreeNode struct {
-	Name string
+	Name     string
 	Children []Node
 }
 

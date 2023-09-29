@@ -1,4 +1,4 @@
-package main
+package treeDisplay
 
 type Config struct {
 	// East, South, West
